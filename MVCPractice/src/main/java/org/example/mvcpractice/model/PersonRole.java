@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Table(name = "person_role",
         uniqueConstraints = @UniqueConstraint(name = "uq_person_role_", columnNames = {"person_id","role_id"}),
         indexes = {
-                @Index(name = "ix_pr_person", columnList = "perspn_id"),
+                @Index(name = "ix_pr_person", columnList = "person_id"),
                 @Index(name = "ix_pr_role", columnList = "role_id")
         })
 @Data
@@ -22,8 +22,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 
-public class person_role {
-
+public class PersonRole {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
@@ -31,12 +30,12 @@ public class person_role {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "person_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_pr_person" ))
-    private person person;
+    private Person person;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_pr_role" ))
-    private role role;
+    private Role role;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

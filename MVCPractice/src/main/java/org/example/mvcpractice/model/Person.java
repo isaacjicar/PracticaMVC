@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class person {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class person {
     @Column(name = "last_name", nullable = false, length = 120)
     private String lastName;
 
-    @Column( nullable = false, length = 220,unique = true)
+    @Column( nullable = false, length = 220)
     private String email;
 
     @Column(name = "number", nullable = false, length = 30)

@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class role {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +31,9 @@ public class role {
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
-    private LocalDateTime created_at;
-
+    private LocalDateTime createdAt;
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updated_at;
+    private LocalDateTime updatedAt;
 
 }
